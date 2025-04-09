@@ -1,0 +1,142 @@
+# Site Reliability Engineering (SRE) Concepts
+
+---
+
+## 📌 1. What is SRE?
+
+**Site Reliability Engineering (SRE)** is a discipline that incorporates aspects of software engineering and applies them to infrastructure and operations problems. The main goals are to create scalable and highly reliable software systems.
+
+---
+
+## ⚙️ 2. Key SRE Concepts
+
+### 🔹 2.1 Latency
+
+- **Definition**: Time taken to service a request.
+- **Types**:
+  - *Request Latency*: Time between sending a request and receiving a response.
+  - *Response Latency*: Time taken by the server to respond.
+- **Example**: HTTP request taking 200ms.
+
+---
+
+### 🔹 2.2 Throughput
+
+- **Definition**: Number of requests handled in a given time period.
+- **Measured in**: Requests per second (RPS) or Transactions per second (TPS).
+- **Example**: 1000 RPS under load testing.
+
+---
+
+### 🔹 2.3 Availability
+
+- **Definition**: Percentage of time a service is operational and accessible.
+- **Formula**: (Uptime / Total Time) * 100
+- **Example**: 99.9% availability means ~8.76 hours of downtime per year.
+
+---
+
+### 🔹 2.4 Reliability
+
+- **Definition**: The ability of a system to perform consistently over time.
+- **Focus**: Redundancy, fault tolerance, disaster recovery.
+
+---
+
+### 🔹 2.5 Scalability
+
+- **Definition**: System’s ability to handle increased load.
+- **Types**:
+  - *Vertical Scaling*: Adding more power (CPU, RAM) to existing machine.
+  - *Horizontal Scaling*: Adding more machines.
+
+---
+
+### 🔹 2.6 TOIL
+
+- **Definition**: Manual, repetitive, automatable work that scales linearly.
+- **Goal**: Reduce TOIL via automation.
+- **Example**: Manually restarting services, updating DNS.
+
+---
+
+### 🔹 2.7 Monitoring
+
+- **Definition**: Collecting and analyzing metrics to detect anomalies.
+- **Tools**: Prometheus, Grafana, Nagios, Datadog.
+
+---
+
+### 🔹 2.8 Logging
+
+- **Definition**: Capturing runtime information for debugging and auditing.
+- **Tools**: Loki, ELK stack (Elasticsearch, Logstash, Kibana).
+
+---
+
+### 🔹 2.9 Alerting
+
+- **Definition**: Notifying team about incidents or threshold breaches.
+- **Tools**: Alertmanager, PagerDuty, Opsgenie.
+
+---
+
+## 📊 3. SLI, SLO, SLA
+
+### 🔸 3.1 SLI (Service Level Indicator)
+
+- **Definition**: A carefully defined quantitative measure of service behavior.
+- **Example**: "Availability of login API" or "Latency under 300ms".
+
+### 🔸 3.2 SLO (Service Level Objective)
+
+- **Definition**: Target value or range for an SLI over a time window.
+- **Example**: "Login API availability should be 99.9% over the last 30 days".
+
+### 🔸 3.3 SLA (Service Level Agreement)
+
+- **Definition**: Formal contract with external users about expected service level.
+- **Example**: "If uptime drops below 99.5%, the client receives a refund."
+
+---
+
+## 🔄 4. Error Budget
+
+- **Definition**: Acceptable level of risk or error allowed in a system.
+- **Formula**: `Error Budget = 100% - SLO`
+- **Example**: If SLO is 99.9%, error budget is 0.1% downtime/month (~43.2 mins).
+
+---
+
+## 🧰 5. Tools Commonly Used in SRE
+
+| Category       | Tools                       |
+|----------------|-----------------------------|
+| Monitoring     | Prometheus, Grafana         |
+| Logging        | Loki, ELK Stack             |
+| Alerting       | Alertmanager, PagerDuty     |
+| Tracing        | Jaeger, Zipkin              |
+| Automation     | Terraform, Ansible, Jenkins |
+| CI/CD          | Jenkins, GitHub Actions     |
+
+---
+
+## 📘 6. Best Practices
+
+- Set realistic SLOs based on historical data.
+- Automate repetitive TOIL tasks.
+- Monitor and alert only on actionable issues.
+- Share runbooks and improve documentation.
+- Conduct postmortems after incidents.
+
+---
+
+## ✅ Summary
+
+- SRE is about making systems reliable, scalable, and maintainable.
+- Concepts like latency, TOIL, SLO, and SLIs help measure and manage performance.
+- Tooling and automation play a huge role in modern SRE practices.
+
+---
+
+Let me know if you want this in a downloadable `.md` file format!
